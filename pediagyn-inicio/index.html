@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Acceso móvil al Sistema Integrado de PEDIAGYN.">
+  <meta name="theme-color" content="#b51f79">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="application-name" content="PEDIAGYN">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PEDIAGYN">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>PEDIAGYN · Sistema Integrado</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f5f8;
+      color: #2f2430;
+      --brand: #b51f79;
+      --brand-dark: #8e175e;
+      --border: #eadce5;
+      --muted: #6f626d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
+      background:
+        radial-gradient(circle at 50% 0%, rgba(181, 31, 121, .10), transparent 42%),
+        #f7f5f8;
+    }
+
+    main {
+      width: min(100%, 460px);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px 26px 26px;
+      box-shadow: 0 18px 55px rgba(82, 35, 67, .12);
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 18px;
+      border-radius: 26px;
+      box-shadow: 0 10px 28px rgba(181, 31, 121, .16);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.65rem, 7vw, 2.1rem);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      color: var(--brand-dark);
+    }
+
+    .subtitle {
+      margin: 8px 0 24px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .instructions {
+      margin: 0 0 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fbf7fa;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .instructions strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .instructions p {
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .button {
+      display: flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 16px;
+      background: var(--brand);
+      color: #ffffff;
+      font-weight: 750;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(181, 31, 121, .23);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .button:active { transform: scale(.985); }
+    .button:focus-visible { outline: 3px solid rgba(181, 31, 121, .30); outline-offset: 3px; }
+
+    .privacy {
+      margin: 18px 4px 0;
+      color: #8c7f89;
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    .launching { display: none; }
+
+    body.is-standalone .installer { display: none; }
+    body.is-standalone .launching { display: block; }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      margin: 22px auto 4px;
+      border: 4px solid #ecd4e3;
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .spinner { animation-duration: 1.8s; }
+      .button { transition: none; }
+    }
+
+    @media (max-width: 380px) {
+      main { padding: 26px 20px 22px; border-radius: 24px; }
+      .logo { width: 96px; height: 96px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="./icon-192.png" width="192" height="192" alt="Logo de PEDIAGYN">
+
+    <section class="installer" aria-labelledby="page-title">
+      <h1 id="page-title">PEDIAGYN</h1>
+      <p class="subtitle">Acceso al Sistema Integrado</p>
+
+      <div class="instructions">
+        <strong>Agregar a la pantalla de inicio</strong>
+        <p><b>iPhone o iPad:</b> en Safari, toca Compartir y luego “Agregar a Inicio”.</p>
+        <p><b>Android:</b> abre el menú del navegador y selecciona “Instalar aplicación” o “Agregar a pantalla principal”.</p>
+      </div>
+
+      <a class="button" id="open-system" href="https://script.google.com/a/macros/pediagyn.com/s/AKfycby0qNJgowy8-xYWTMo_HCnM1t-UUtpmVWotVsmXKHIjAFepszPj0VrKfi1ZZQUEY9k5sw/exec">Abrir Sistema Integrado ahora</a>
+      <p class="privacy">Esta página no almacena información clínica. Solo proporciona el acceso al sistema protegido por Google.</p>
+    </section>
+
+    <section class="launching" aria-live="polite" aria-labelledby="launch-title">
+      <h1 id="launch-title">PEDIAGYN</h1>
+      <p class="subtitle">Abriendo el Sistema Integrado…</p>
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="privacy">Si el sistema no se abre automáticamente, <a id="fallback-link" href="https://script.google.com/a/macros/pediagyn.com/s/AKfycby0qNJgowy8-xYWTMo_HCnM1t-UUtpmVWotVsmXKHIjAFepszPj0VrKfi1ZZQUEY9k5sw/exec">toca aquí</a>.</p>
+    </section>
+  </main>
+
+  <noscript>
+    <p><a href="https://script.google.com/a/macros/pediagyn.com/s/AKfycby0qNJgowy8-xYWTMo_HCnM1t-UUtpmVWotVsmXKHIjAFepszPj0VrKfi1ZZQUEY9k5sw/exec">Abrir Sistema Integrado</a></p>
+  </noscript>
+
+  <script>
+    (() => {
+      const appUrl = 'https://script.google.com/a/macros/pediagyn.com/s/AKfycby0qNJgowy8-xYWTMo_HCnM1t-UUtpmVWotVsmXKHIjAFepszPj0VrKfi1ZZQUEY9k5sw/exec';
+      const launchedFromManifest = new URLSearchParams(window.location.search).get('origen') === 'inicio';
+      const isStandalone = window.navigator.standalone === true ||
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.matchMedia('(display-mode: fullscreen)').matches ||
+        launchedFromManifest;
+
+      if (!isStandalone) return;
+
+      document.body.classList.add('is-standalone');
+      window.setTimeout(() => window.location.replace(appUrl), 350);
+    })();
+  </script>
+</body>
+</html>
